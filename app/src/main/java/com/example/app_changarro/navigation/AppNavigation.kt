@@ -9,14 +9,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.app_changarro.ui.theme.BottomNavBar
 import com.example.changarro.screens.HomeScreen
 import com.example.changarro.screens.JobzzzDetailScreen
 import com.example.changarro.screens.JobzzzScreen
 import com.example.changarro.screens.JobzzzToolAddScreen
 import com.example.changarro.screens.SplashScreen
 import com.example.changarro.screens.ToolzzzScreen
-import com.example.changarro.screens.components.BottomNavBar
+import com.example.changarro.screens.JobzzzDetail2Screen
 
 @ExperimentalMaterial3Api
 @Composable
@@ -41,7 +40,7 @@ fun AppNavigation() {
             composable("toolzzz") { ToolzzzScreen(navController) }
             composable("jobzzz") { JobzzzScreen(navController) }
             composable("jobzzz_detail") { JobzzzDetailScreen(navController) }
-            composable("jobzzz_detail_2") { JobzzzDetailScreen2(navController) }
+            composable("jobzzz_detail_2") { JobzzzDetail2Screen(navController) }
             composable("jobzzz_tool_add") { JobzzzToolAddScreen(navController) }
         }
     }
