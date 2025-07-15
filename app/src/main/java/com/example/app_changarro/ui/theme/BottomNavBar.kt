@@ -1,4 +1,4 @@
-package com.example.changarro.screens.components
+package com.example.app_changarro.ui.theme
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -13,7 +13,7 @@ data class BottomNavItem(val title: String, val icon: ImageVector, val route: St
 val bottomNavItems = listOf(
     BottomNavItem("Home", Icons.Default.Home, "home"),
     BottomNavItem("Tools", Icons.Default.Build, "toolzzz"),
-    BottomNavItem("Jobs", Icons.Default.Create, "jobzzz")
+    BottomNavItem("Jobs", Icons.Default.Edit, "jobzzz")
 )
 
 @Composable

@@ -1,38 +1,53 @@
-package com.example.changarro.navigation
+package com.example.app_changarro.navigation
 
-import com.example.changarro.screens.components.BottomNavBar
-
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.changarro.screens.*
+import androidx.navigation.compose.rememberNavController
+import com.example.app_changarro.ui.theme.BottomNavBar
+import com.example.changarro.screens.HomeScreen
+import com.example.changarro.screens.JobzzzDetailScreen
+import com.example.changarro.screens.JobzzzScreen
+import com.example.changarro.screens.JobzzzToolAddScreen
+import com.example.changarro.screens.SplashScreen
+import com.example.changarro.screens.ToolzzzScreen
+import com.example.changarro.screens.components.BottomNavBar
 
+@ExperimentalMaterial3Api
 @Composable
-fun AppNavigation(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "splash") {
-        composable("splash") { SplashScreen(navController) }
-        composable("home") { HomeScreen(navController) }
-        composable("toolzzz") { ToolzzzScreen(navController) }
-        composable("jobzzz") { JobzzzScreen(navController) }
-        composable("jobzzz_detail") { JobzzzDetailScreen(navController) }
-        composable("jobzzz_tool_add") { JobzzzToolAddScreen(navController) }
-        composable("jobzzz_detail_2") { JobzzzDetail2Screen(navController) }
+fun AppNavigation() {
+    val navController = rememberNavController()
+
+    Scaffold(
+        bottomBar = {
+            val currentRoute = navController.currentBackStackEntry?.destination?.route
+            if (currentRoute in listOf("home", "toolzzz", "jobzzz")) {
+
+            }
+        }
+    ) { innerPadding ->
+        NavHost(
+            navController = navController,
+            startDestination = "splash",
+            modifier = Modifier.padding(innerPadding)
+        ) {
+            composable("splash") { SplashScreen(navController) }
+            composable("home") { HomeScreen(navController) }
+            composable("toolzzz") { ToolzzzScreen(navController) }
+            composable("jobzzz") { JobzzzScreen(navController) }
+            composable("jobzzz_detail") { JobzzzDetailScreen(navController) }
+            composable("jobzzz_detail_2") { JobzzzDetailScreen2(navController) }
+            composable("jobzzz_tool_add") { JobzzzToolAddScreen(navController) }
+        }
     }
 }
 
-Scaffold(
-    bottomBar = {
-        if (currentRoute in listOf("home", "toolzzz", "jobzzz")) {
-            BottomNavBar(navController)
-        }
-    }
-) { innerPadding ->
-    NavHost(
-        navController = navController,
-        startDestination = "splash",
-        modifier = Modifier.padding(innerPadding)
-    ) {
-        // ... composables ya definidos
-    }
+@Composable
+fun JobzzzDetailScreen2(x0: NavHostController) {
+    TODO("Not yet implemented")
 }
