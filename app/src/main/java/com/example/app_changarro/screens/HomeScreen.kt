@@ -17,5 +17,9 @@ fun HomeScreen(navController: NavController) {
         Button(onClick = { navController.navigate("toolzzz") }) {
             Text("Ir a Toolzzz")
         }
+        Spacer(modifier = Modifier.height(20.dp))
+        Button(onClick = { navController.navigate("jobzzz") }) {
+            Text("Ir a Jobzzz")
+        }
     }
 }
