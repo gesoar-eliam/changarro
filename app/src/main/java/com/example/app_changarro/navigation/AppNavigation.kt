@@ -1,5 +1,7 @@
 package com.example.changarro.navigation
 
+import com.example.changarro.screens.components.BottomNavBar
+
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -16,5 +18,21 @@ fun AppNavigation(navController: NavHostController) {
         composable("jobzzz_detail") { JobzzzDetailScreen(navController) }
         composable("jobzzz_tool_add") { JobzzzToolAddScreen(navController) }
         composable("jobzzz_detail_2") { JobzzzDetail2Screen(navController) }
+    }
+}
+
+Scaffold(
+    bottomBar = {
+        if (currentRoute in listOf("home", "toolzzz", "jobzzz")) {
+            BottomNavBar(navController)
+        }
+    }
+) { innerPadding ->
+    NavHost(
+        navController = navController,
+        startDestination = "splash",
+        modifier = Modifier.padding(innerPadding)
+    ) {
+        // ... composables ya definidos
     }
 }
